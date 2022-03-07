@@ -1,3 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 body {
-  background-color: aquamarine;
+  padding: 48px;
+  height: 100%;
+  min-height: 100vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }
