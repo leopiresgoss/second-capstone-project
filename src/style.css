@@ -11,6 +11,57 @@ body {
   min-height: 100vh;
 }
 
+/* popup window */
+#popup {
+  position: fixed;
+  top: 5%;
+  right: 10%;
+  left: 10%;
+  bottom: 5%;
+  padding: 5%;
+  overflow-y: scroll;
+}
+
+#close-btn {
+  font-size: 24px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+
+.modal {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal img {
+  max-width: 80%;
+  min-height: 200px;
+  max-height: 400px;
+}
+
+.date {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.date li {
+  list-style: none;
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.summary {
+  padding-top: 2%;
+  width: 60%;
+}
+
 footer {
   position: absolute;
   bottom: 0;
