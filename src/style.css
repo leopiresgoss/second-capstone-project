@@ -11,6 +11,67 @@ body {
   min-height: 100vh;
 }
 
+.hide {
+  display: none;
+}
+
+/* popup window */
+#popup {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 1;
+  background-color: white;
+}
+
+.modal {
+  max-width: 730px;
+  min-height: min-content;
+  margin: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+#close-btn {
+  font-size: 24px;
+  text-align: left;
+  cursor: pointer;
+  margin-left: auto;
+  width: min-content;
+  margin-right: 0;
+}
+
+.modal img {
+  max-width: 80%;
+  min-height: 200px;
+  max-height: 400px;
+}
+
+.date {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.date li {
+  list-style: none;
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.summary {
+  padding-top: 2%;
+}
+
 footer {
   position: absolute;
   bottom: 0;
