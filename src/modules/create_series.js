@@ -19,7 +19,6 @@ const createSeries = (movie) => {
   return series;
 };
 
-
 //For each element of the created season, add them to the container that carries all seasons
 const renderPage = (movies) => {
   const seriesItems = document.querySelector('.row');
@@ -28,6 +27,5 @@ const renderPage = (movies) => {
     seriesItems.appendChild(createSeries(movie));
   });
 };
-
 
 export default renderPage;

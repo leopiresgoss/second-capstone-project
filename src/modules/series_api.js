@@ -7,10 +7,6 @@ const fetchSeasons = async () => {
   const scores = response.json();
   console.log(scores);
   return scores;
-  // return scores;
 };
-
-
-// fetchSeasons();
 
 export default fetchSeasons;

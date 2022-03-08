@@ -26,17 +26,15 @@ footer {
   text-align: center;
   padding: 10px;
   margin-bottom: 50px;
-  /* height: 400px; Should be removed. Only for demonstration */
 }
 
 .column-image {
-  /* background-image: url('/src/images/billions.jpg'); */
   background-repeat: no-repeat;
   background-size: contain;
   height: 400px;
-  /* width: 170%; */
   margin-left: 5vw;
 }
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
