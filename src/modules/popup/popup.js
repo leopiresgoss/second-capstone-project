@@ -9,6 +9,7 @@ export default class Popup {
       .then(
         (resp) => {
           this.#displayPopup(resp);
+          this.#closePopUp();
         },
       );
   }
@@ -25,7 +26,7 @@ export default class Popup {
   // render dom
   #displayPopup = (resp) => {
     const popup = document.createElement('div');
-    popup.classList.add('popup');
+    popup.id = 'popup';
     popup.innerHTML = `
       <div class="modal">
         <button type="button" id="close-btn">X</button>
@@ -51,4 +52,11 @@ export default class Popup {
   }
 
   // close popup
+  #closePopUp = () => {
+    const closeBtn = document.getElementById('close-btn');
+    closeBtn.addEventListener('click', () => {
+      const popup = document.getElementById('popup');
+      document.body.removeChild(popup);
+    });
+  }
 }
