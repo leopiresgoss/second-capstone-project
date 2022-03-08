@@ -70,3 +70,35 @@ footer {
   position: absolute;
   bottom: 0;
 }
+
+.content {
+  background-color: aliceblue;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.column-image {
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 400px;
+  margin-left: 5vw;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+button {
+  height: 50px;
+  width: 70px;
+  margin: 20px auto;
+}
