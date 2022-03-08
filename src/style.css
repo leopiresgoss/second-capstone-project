@@ -13,29 +13,34 @@ body {
 
 /* popup window */
 #popup {
-  position: fixed;
-  top: 5%;
-  right: 10%;
-  left: 10%;
-  bottom: 5%;
-  padding: 5%;
-  overflow-y: scroll;
-}
-
-#close-btn {
-  font-size: 24px;
   position: absolute;
-  top: 5%;
-  right: 5%;
-  cursor: pointer;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 1;
+  background-color: white;
 }
 
 .modal {
+  max-width: 730px;
+  min-height: min-content;
+  margin: auto;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+}
+
+#close-btn {
+  font-size: 24px;
+  text-align: left;
+  cursor: pointer;
+  margin-left: auto;
 }
 
 .modal img {
@@ -59,7 +64,6 @@ body {
 
 .summary {
   padding-top: 2%;
-  width: 60%;
 }
 
 footer {
