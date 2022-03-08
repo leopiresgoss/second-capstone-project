@@ -1,6 +1,6 @@
 import './style.css';
-import fetchSeasons from './modules/series_api.js'
-import  renderPage  from './modules/create_series.js'
+import fetchSeasons from './modules/series_api.js';
+import renderPage from './modules/create_series.js';
 
 window.addEventListener('load', () => {
   fetchSeasons().then((data) => {
