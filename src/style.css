@@ -108,3 +108,18 @@ button {
   width: 70px;
   margin: 20px auto;
 }
+
+/* popup comments */
+.comments-block {
+  margin-top: 24px;
+}
+
+.comments-block h3 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.comments li {
+  list-style: none;
+  margin-bottom: 8px;
+}
