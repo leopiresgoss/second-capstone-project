@@ -5,7 +5,6 @@ const createSeries = (movie) => {
   const title = document.createElement('h2');
   const summary = document.createElement('p');
   const button = document.createElement('button');
-
   series.classList.add('column');
   imageHolder.classList.add('column-image');
   imageHolder.style.backgroundImage = `url('${movie.image.medium}')`;
@@ -13,6 +12,8 @@ const createSeries = (movie) => {
   title.textContent = movie.id;
   summary.innerHTML = movie.summary;
   button.textContent = 'Comments';
+  button.classList.add('comment-btn');
+  button.setAttribute('data-id', `${movie.id}`);
 
   series.append(imageHolder, title, summary, button);
 
@@ -24,7 +25,10 @@ const renderPage = (movies) => {
   const seriesItems = document.querySelector('.row');
   seriesItems.innerHTML = '';
   movies.forEach((movie) => {
-    seriesItems.appendChild(createSeries(movie));
+    // check if it is not empty
+    if (movie.image !== null) {
+      seriesItems.appendChild(createSeries(movie));
+    }
   });
 };
 

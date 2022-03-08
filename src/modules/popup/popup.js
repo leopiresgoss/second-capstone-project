@@ -55,6 +55,8 @@ export default class Popup {
   #closePopUp = () => {
     const closeBtn = document.getElementById('close-btn');
     closeBtn.addEventListener('click', () => {
+      const contentSection = document.querySelector('.content');
+      contentSection.classList.remove('hide');
       const popup = document.getElementById('popup');
       document.body.removeChild(popup);
     });

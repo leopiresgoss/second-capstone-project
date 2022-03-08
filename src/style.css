@@ -11,9 +11,13 @@ body {
   min-height: 100vh;
 }
 
+.hide {
+  display: none;
+}
+
 /* popup window */
 #popup {
-  position: absolute;
+  position: fixed;
   height: 100%;
   top: 0;
   right: 0;
@@ -41,6 +45,8 @@ body {
   text-align: left;
   cursor: pointer;
   margin-left: auto;
+  width: min-content;
+  margin-right: 0;
 }
 
 .modal img {
