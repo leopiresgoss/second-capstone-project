@@ -18,6 +18,7 @@ export default class Comment {
     if (res.error) {
       return [];
     }
+
     return res;
   };
 
