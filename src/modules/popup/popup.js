@@ -35,35 +35,41 @@ export default class Popup extends Comment {
 
     const popup = document.createElement('div');
     popup.id = 'popup';
-    popup.innerHTML = `
-      <div class="modal">
-        <button type="button" id="close-btn">X</button>
-        <img src="${resp.image.original}" alt="">
-        <h2 class="season 1">Season 1</h2>
-        <ul class="date">
-          <li id="premerier-date">
-            <p>Premerier Date:</p>
-            <p>${resp.premiereDate}</p>
-          </li>
-          <li id="end-date">
-            <p>End Date:</p>
-            <p>${resp.endDate}</p>
-          </li>
-        </ul>
-        <div class="summary">
-          ${resp.summary}
-        </div>
-        ${commentsDiv.innerHTML}
-        <form action="/" method="POST">
-          <h3>Add a comment</h3>
-          <input type="text" name="username" id="name" placeholder="Your name" maxlength="30" required>
-          <textarea name="comment" id="new-comment" placeholder="Your insights" cols="30" rows="10" maxlength="260" required></textarea>
-          <button type="submit" id="submit-comment" data-id="${resp.id}">Comment</button>
-        </form>
-      </div>
-    `;
+    popup.innerHTML = this.#popupHtml(resp, commentsDiv);
     document.body.appendChild(popup);
   };
+
+  // popup inner html
+  #popupHtml = (resp, commentsDiv) => {
+    const html = `
+    <div class="modal">
+      <button type="button" id="close-btn">X</button>
+      <img src="${resp.image.original}" alt="">
+      <h2 class="season 1">Season 1</h2>
+      <ul class="date">
+        <li id="premerier-date">
+          <p>Premerier Date:</p>
+          <p>${resp.premiereDate}</p>
+        </li>
+        <li id="end-date">
+          <p>End Date:</p>
+          <p>${resp.endDate}</p>
+        </li>
+      </ul>
+      <div class="summary">
+        ${resp.summary}
+      </div>
+      ${commentsDiv.innerHTML}
+      <form action="/" method="POST">
+        <h3>Add a comment</h3>
+        <input type="text" name="username" id="name" placeholder="Your name" maxlength="30" required>
+        <textarea name="comment" id="new-comment" placeholder="Your insights" cols="30" rows="10" maxlength="260" required></textarea>
+        <button type="submit" id="submit-comment" data-id="${resp.id}">Comment</button>
+      </form>
+    </div>
+  `;
+    return html;
+  }
 
   // close popup
   #closePopUp = () => {
@@ -113,8 +119,27 @@ export default class Popup extends Comment {
         username,
         comment,
         id,
-      }).then(() => console.log('it worked'));
+      }).then(() => {
+        this.#getDataFromAPI()
+          .then(
+            async (resp) => {
+              await this.#updatePopup(resp);
+            },
+          );
+      });
       form.reset();
     });
   }
+
+  // update popup window after adding a comment
+  #updatePopup = async (resp) => {
+    const popup = document.getElementById('popup');
+    popup.innerHTML = '';
+
+    const comments = await this.getCommentsFromApi(resp.id);
+    const commentsDiv = this.#displayComments(comments);
+    popup.innerHTML = this.#popupHtml(resp, commentsDiv);
+    this.#closePopUp();
+    this.#addFormListener();
+  };
 }
