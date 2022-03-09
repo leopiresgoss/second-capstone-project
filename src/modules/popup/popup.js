@@ -45,7 +45,7 @@ export default class Popup extends Comment {
     <div class="modal">
       <button type="button" id="close-btn">X</button>
       <img src="${resp.image.original}" alt="">
-      <h2 class="season 1">Season 1</h2>
+      <h2 class="season 1">Season ${resp.number}</h2>
       <ul class="date">
         <li id="premerier-date">
           <p>Premerier Date:</p>
