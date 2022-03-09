@@ -18,6 +18,7 @@ export default class Comment {
     if (res.error) {
       return [];
     }
+
     return res;
   };
 
@@ -41,4 +42,9 @@ export default class Comment {
       },
     });
   };
+
+  commentsCounter = (comments) => {
+    if (comments) return comments.length;
+    return 0;
+  }
 }

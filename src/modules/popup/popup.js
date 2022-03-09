@@ -45,7 +45,7 @@ export default class Popup extends Comment {
     <div class="modal">
       <button type="button" id="close-btn">X</button>
       <img src="${resp.image.original}" alt="">
-      <h2 class="season 1">Season 1</h2>
+      <h2 class="season 1">Season ${resp.number}</h2>
       <ul class="date">
         <li id="premerier-date">
           <p>Premerier Date:</p>
@@ -89,7 +89,8 @@ export default class Popup extends Comment {
     commentsBlock.classList.add('comments-block');
 
     const commentsTitile = document.createElement('h3');
-    commentsTitile.textContent = `Comments (${comments.length})`;
+    const commentsCounter = this.commentsCounter(comments);
+    commentsTitile.textContent = `Comments (${commentsCounter})`;
 
     const commentsList = document.createElement('ul');
     commentsList.classList.add('comments');
