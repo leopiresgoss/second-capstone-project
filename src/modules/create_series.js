@@ -4,7 +4,9 @@ const createSeries = (movie) => {
   const imageHolder = document.createElement('p');
   const title = document.createElement('h2');
   const summary = document.createElement('p');
+  const likeHolder = document.createElement('p');
   const button = document.createElement('button');
+  const likeButton = document.createElement('button');
   series.classList.add('column');
   imageHolder.classList.add('column-image');
   imageHolder.style.backgroundImage = `url('${movie.image.medium}')`;
@@ -14,8 +16,14 @@ const createSeries = (movie) => {
   button.textContent = 'Comments';
   button.classList.add('comment-btn');
   button.setAttribute('data-id', `${movie.id}`);
+  likeHolder.classList.add('like-item');
+  likeHolder.setAttribute('dataid', `${movie.id}`);
+  likeButton.textContent = 'like';
+  likeButton.classList.add('like-btn');
+  likeButton.type = "button";
+  likeButton.setAttribute('dataid', `${movie.id}`);
 
-  series.append(imageHolder, title, summary, button);
+  series.append(imageHolder, title,likeButton,likeHolder, summary, button);
 
   return series;
 };
