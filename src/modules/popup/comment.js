@@ -41,4 +41,9 @@ export default class Comment {
       },
     });
   };
+
+  commentsCounter = (comments) => {
+    if (comments) return comments.length;
+    return 0;
+  }
 }
