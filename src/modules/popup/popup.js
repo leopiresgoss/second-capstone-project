@@ -89,7 +89,8 @@ export default class Popup extends Comment {
     commentsBlock.classList.add('comments-block');
 
     const commentsTitile = document.createElement('h3');
-    commentsTitile.textContent = `Comments (${comments.length})`;
+    const commentsCounter = this.commentsCounter(comments);
+    commentsTitile.textContent = `Comments (${commentsCounter})`;
 
     const commentsList = document.createElement('ul');
     commentsList.classList.add('comments');
