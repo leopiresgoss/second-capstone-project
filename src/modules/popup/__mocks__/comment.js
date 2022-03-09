@@ -1,5 +1,4 @@
 export default class Comment {
-  // get data from involvement api
   getCommentsFromApi = () => Promise.resolve(
     [
       { 0: { comment: 'Hello', username: 'Jane', creation_date: '2022-03-09' } },
