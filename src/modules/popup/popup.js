@@ -53,6 +53,12 @@ export default class Popup extends Comment {
           ${resp.summary}
         </div>
         ${commentsDiv.innerHTML}
+        <form action="/" method="POST">
+          <h3>Add a comment</h3>
+          <input type="text" name="username" id="name" placeholder="Your name" maxlength="30" required>
+          <textarea name="comment" id="new-comment" placeholder="Your insights" cols="30" rows="10" maxlength="260" required></textarea>
+          <button type="submit" id="submit-comment">Comment</button>
+        </form>
       </div>
     `;
     document.body.appendChild(popup);

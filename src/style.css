@@ -26,6 +26,7 @@ body {
   display: flex;
   z-index: 1;
   background-color: white;
+  overflow: auto;
 }
 
 .modal {
@@ -46,7 +47,8 @@ body {
   cursor: pointer;
   margin-left: auto;
   width: min-content;
-  margin-right: 0;
+  margin: 16px 0 0 auto;
+  flex: 0;
 }
 
 .modal img {
@@ -122,4 +124,28 @@ button {
 .comments li {
   list-style: none;
   margin-bottom: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 2px solid black;
+  padding: 8px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-size: .8rem;
+  word-spacing: 0.4rem;
+} 
+
+#submit-comment {
+  margin: 0 auto  16px 0;
 }
