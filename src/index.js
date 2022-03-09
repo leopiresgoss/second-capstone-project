@@ -39,7 +39,7 @@ const displayLikes = () => {
 // This is to add a like FOR A PARTICULAR sesason of the series and post it to the API
 const addLike = () => {
   const likebtn = document.querySelectorAll('.like-btn');
-  likebtn.forEach((item, i) => {
+  likebtn.forEach((item) => {
     item.addEventListener('click', (e) => {
       const likeId = e.target.getAttribute('dataid');
       const data = {
