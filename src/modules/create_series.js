@@ -20,10 +20,10 @@ const createSeries = (movie) => {
   likeHolder.setAttribute('dataid', `${movie.id}`);
   likeButton.textContent = 'like';
   likeButton.classList.add('like-btn');
-  likeButton.type = "button";
+  likeButton.type = 'button';
   likeButton.setAttribute('dataid', `${movie.id}`);
 
-  series.append(imageHolder, title,likeButton,likeHolder, summary, button);
+  series.append(imageHolder, title, likeButton, likeHolder, summary, button);
 
   return series;
 };

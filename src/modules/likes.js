@@ -1,8 +1,7 @@
-const LIKE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Bo7KD2ofBm7gwCZEOwMt/likes/'
+const LIKE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Bo7KD2ofBm7gwCZEOwMt/likes/';
 
 const sendLike = async (data) => {
-  console.log("This is data "+  JSON.stringify(data));
-  const response = await fetch( LIKE_URL, {
+  const response = await fetch(LIKE_URL, {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
