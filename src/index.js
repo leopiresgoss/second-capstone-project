@@ -36,6 +36,13 @@ const displayLikes = () => {
   });
 };
 
+//This is to implement items counter on the homepage and update on the header section
+const seasonsCounter = () => {
+  const columns = document.querySelectorAll('.column');
+  const headerlink = document.querySelector('.headlink');
+  headerlink.innerHTML =  columns.length + " Seasons";
+};
+
 // This is to add a like FOR A PARTICULAR sesason of the series and post it to the API
 const addLike = () => {
   const likebtn = document.querySelectorAll('.like-btn');
@@ -56,5 +63,6 @@ window.addEventListener('load', () => {
     openPopUp();
     addLike();
     displayLikes();
+    seasonsCounter();
   });
 }, false);
