@@ -13,6 +13,7 @@ export default class Popup extends Comment {
         async (resp) => {
           await this.#displayPopup(resp);
           this.#closePopUp();
+          this.#addFormListener();
           // await this.addComments();
         },
       );
@@ -57,7 +58,7 @@ export default class Popup extends Comment {
           <h3>Add a comment</h3>
           <input type="text" name="username" id="name" placeholder="Your name" maxlength="30" required>
           <textarea name="comment" id="new-comment" placeholder="Your insights" cols="30" rows="10" maxlength="260" required></textarea>
-          <button type="submit" id="submit-comment">Comment</button>
+          <button type="submit" id="submit-comment" data-id="${resp.id}">Comment</button>
         </form>
       </div>
     `;
@@ -97,4 +98,23 @@ export default class Popup extends Comment {
     commentsBlock.append(commentsTitile, commentsList);
     return commentsBlock;
   };
+
+  // add comment listener
+  #addFormListener = () => {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const username = document.getElementById('name').value;
+      const comment = document.getElementById('new-comment').value;
+      const button = document.getElementById('submit-comment');
+      const id = button.getAttribute('data-id');
+
+      this.addComments({
+        username,
+        comment,
+        id,
+      }).then(() => console.log('it worked'));
+      form.reset();
+    });
+  }
 }
