@@ -13,6 +13,7 @@ export default class Popup extends Comment {
         async (resp) => {
           await this.#displayPopup(resp);
           this.#closePopUp();
+          // await this.addComments();
         },
       );
   };
@@ -82,8 +83,9 @@ export default class Popup extends Comment {
 
     comments.forEach((comment) => {
       const commentLi = document.createElement('li');
-      // TODO: add comment details from comment obj
-      commentLi.textContent = '03/11/2021: I\'d love to buy it';
+      commentLi.textContent = `
+        ${comment.creation_date} ${comment.username}: ${comment.comment} 
+      `;
       commentsList.appendChild(commentLi);
     });
     commentsBlock.append(commentsTitile, commentsList);
