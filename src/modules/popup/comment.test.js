@@ -13,4 +13,8 @@ describe('Test comment counter', () => {
     const comments = [];
     expect(comment.commentsCounter(comments)).toBe(0);
   });
+
+  test('in case of not passing any param, should return 0', () => {
+    expect(comment.commentsCounter()).toBe(0);
+  });
 });
