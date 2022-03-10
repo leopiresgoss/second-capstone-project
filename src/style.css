@@ -134,7 +134,7 @@ header {
 
 .column-image {
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   height: 400px;
 }
 
@@ -199,4 +199,19 @@ footer {
 
 footer p {
   font-weight: 300;
+}
+
+.like-btn {
+  width: 20px;
+  height: 30px;
+  margin-left: auto;
+  background: none;
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.holder {
+  display: flex;
+  align-items: center;
+  margin: 10px;
 }

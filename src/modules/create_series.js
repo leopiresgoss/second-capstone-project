@@ -3,27 +3,29 @@ const createSeries = (movie) => {
   const series = document.createElement('div');
   const imageHolder = document.createElement('p');
   const title = document.createElement('h2');
-  const summary = document.createElement('p');
   const likeHolder = document.createElement('p');
   const button = document.createElement('button');
   const likeButton = document.createElement('button');
+  const elemdiv = document.createElement('div');
   series.classList.add('column');
   imageHolder.classList.add('column-image');
   imageHolder.style.backgroundImage = `url('${movie.image.medium}')`;
 
+  elemdiv.classList.add('holder');
   title.textContent = `Season ${movie.number}`;
-  summary.innerHTML = movie.summary;
   button.textContent = 'Comments';
   button.classList.add('comment-btn');
   button.setAttribute('data-id', `${movie.id}`);
   likeHolder.classList.add('like-item');
   likeHolder.setAttribute('dataid', `${movie.id}`);
-  likeButton.textContent = 'like';
+  likeButton.innerHTML = '<i class="fa-regular fa-heart"></i>';
   likeButton.classList.add('like-btn');
   likeButton.type = 'button';
   likeButton.setAttribute('dataid', `${movie.id}`);
 
-  series.append(imageHolder, title, likeButton, likeHolder, summary, button);
+  elemdiv.append(title, likeButton, likeHolder);
+
+  series.append(imageHolder, elemdiv, button);
 
   return series;
 };

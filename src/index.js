@@ -1,4 +1,5 @@
 import './style.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 import logo from './billions.svg';
 import fetchSeasons from './modules/series_api.js';
 import renderPage from './modules/create_series.js';
@@ -63,6 +64,7 @@ const addLike = () => {
         item_id: likeId,
       };
       sendLike(data);
+      // window.location.reload();
     });
   });
 };
