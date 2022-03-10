@@ -1,6 +1,6 @@
-#Second Capstone : Billions Seasons Review
-
 ![](https://img.shields.io/badge/Microverse-blueviolet)
+
+# Second Capstone : Billions Seasons Review
 
 > This project is an implemention of a review application in which the user can like and comment on a given seeason of a series.
 
