@@ -215,3 +215,15 @@ footer p {
   align-items: center;
   margin: 10px;
 }
+
+@media screen and (max-width: 500px) {
+  header {
+    gap: 0;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .headlink {
+    margin-bottom: 24px;
+  }
+}

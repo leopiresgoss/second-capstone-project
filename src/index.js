@@ -8,8 +8,11 @@ import { sendLike, getlikes, updateLikes } from './modules/likes.js';
 
 // add logo
 const addLogo = () => {
-  const img = document.querySelector('#logo img');
+  const logoDiv = document.querySelector('#logo');
+  const img = document.createElement('img');
   img.src = logo;
+  img.alt = 'logo';
+  logoDiv.appendChild(img);
 };
 
 // add comments event listener
