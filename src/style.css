@@ -19,7 +19,7 @@ button {
 }
 
 .hide {
-  display: none;
+  overflow: hidden;
 }
 
 header,
@@ -59,6 +59,7 @@ header {
 /* popup window */
 #popup {
   position: fixed;
+  padding: 2vh 0;
   height: 100%;
   top: 0;
   right: 0;
@@ -66,7 +67,7 @@ header {
   bottom: 0;
   display: flex;
   z-index: 1;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.6);
   overflow: auto;
 }
 
@@ -80,6 +81,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 12px;
+  padding: 0 2%;
 }
 
 #close-btn {
@@ -88,6 +90,7 @@ header {
   cursor: pointer;
   width: min-content;
   margin: 16px 0 0 auto;
+  background-color: transparent;
   flex: 0;
 }
 
@@ -104,8 +107,13 @@ header {
   flex-wrap: wrap;
 }
 
+.summary-title {
+  margin-top: 16px;
+}
+
 .summary {
   padding-top: 2%;
+  margin-bottom: 16px;
 }
 
 .row {
@@ -181,6 +189,7 @@ textarea::placeholder {
 
 #submit-comment {
   margin: 0 auto  16px 0;
+  padding: 8px;
 }
 
 footer {

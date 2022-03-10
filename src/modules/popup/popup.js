@@ -56,6 +56,7 @@ export default class Popup extends Comment {
           <p>${resp.endDate}</p>
         </li>
       </ul>
+      <h3 class="summary-title">Summary</h3>
       <div class="summary">
         ${resp.summary}
       </div>
@@ -64,7 +65,7 @@ export default class Popup extends Comment {
         <h3>Add a comment</h3>
         <input type="text" name="username" id="name" placeholder="Your name" maxlength="30" required>
         <textarea name="comment" id="new-comment" placeholder="Your insights" cols="30" rows="10" maxlength="260" required></textarea>
-        <button type="submit" id="submit-comment" data-id="${resp.id}">Comment</button>
+        <button type="submit" class="comment-btn" id="submit-comment" data-id="${resp.id}">Comment</button>
       </form>
     </div>
   `;
@@ -75,8 +76,7 @@ export default class Popup extends Comment {
   #closePopUp = () => {
     const closeBtn = document.getElementById('close-btn');
     closeBtn.addEventListener('click', () => {
-      const contentSection = document.querySelector('.content');
-      contentSection.classList.remove('hide');
+      document.body.classList.remove('hide');
       const popup = document.getElementById('popup');
       document.body.removeChild(popup);
     });

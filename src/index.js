@@ -16,8 +16,7 @@ const openPopUp = () => {
   const commentsBtn = document.querySelectorAll('.comment-btn');
   commentsBtn.forEach((button) => {
     button.addEventListener('click', () => {
-      const contentSection = document.querySelector('.content');
-      contentSection.classList.add('hide');
+      document.body.classList.add('hide');
       const id = button.getAttribute('data-id');
       const popup = new Popup(id);
       popup.renderPopUp();
