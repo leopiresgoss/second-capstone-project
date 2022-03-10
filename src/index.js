@@ -1,8 +1,15 @@
 import './style.css';
+import logo from './billions.svg';
 import fetchSeasons from './modules/series_api.js';
 import renderPage from './modules/create_series.js';
 import Popup from './modules/popup/popup.js';
 import { sendLike, getlikes } from './modules/likes.js';
+
+// add logo
+const addLogo = () => {
+  const img = document.querySelector('#logo img');
+  img.src = logo;
+};
 
 // add comments event listener
 const openPopUp = () => {
@@ -64,6 +71,7 @@ const addLike = () => {
 window.addEventListener('load', () => {
   fetchSeasons().then((data) => {
     renderPage(data);
+    addLogo();
     openPopUp();
     addLike();
     displayLikes();
