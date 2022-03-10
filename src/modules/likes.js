@@ -1,4 +1,4 @@
-const LIKE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Bo7KD2ofBm7gwCZEOwMt/likes/';
+const LIKE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/LmJFRDH8KbSgZw7EqeWG/likes/';
 
 const sendLike = async (data) => {
   const response = await fetch(LIKE_URL, {
@@ -24,4 +24,12 @@ const getlikes = async () => {
   return likesObj;
 };
 
-export { sendLike, getlikes };
+const updateLikes = async (id) => {
+  const response = await fetch(LIKE_URL);
+  const likesList = await response.json().catch(() => false);
+  if (!likesList) return false;
+  const likeObj = likesList.filter((like) => like.item_id === id);
+  return likeObj[0].likes;
+};
+
+export { sendLike, getlikes, updateLikes };

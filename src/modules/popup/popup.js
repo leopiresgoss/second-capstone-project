@@ -41,7 +41,7 @@ export default class Popup extends Comment {
 
   // popup inner html
   #popupHtml = (resp, commentsDiv) => {
-    const html = `
+    let html = `
     <div class="modal">
       <button type="button" id="close-btn">X</button>
       <img src="${resp.image.original}" alt="">
@@ -56,27 +56,37 @@ export default class Popup extends Comment {
           <p>${resp.endDate}</p>
         </li>
       </ul>
-      <div class="summary">
-        ${resp.summary}
-      </div>
+      
+    `;
+
+    if (resp.summary !== null) {
+      html += `
+        <h3 class="summary-title">Summary</h3>
+        <div class="summary">
+          ${resp.summary}
+        </div>
+        `;
+    }
+
+    html += `
       ${commentsDiv.innerHTML}
       <form action="/" method="POST">
         <h3>Add a comment</h3>
         <input type="text" name="username" id="name" placeholder="Your name" maxlength="30" required>
         <textarea name="comment" id="new-comment" placeholder="Your insights" cols="30" rows="10" maxlength="260" required></textarea>
-        <button type="submit" id="submit-comment" data-id="${resp.id}">Comment</button>
+        <button type="submit" class="comment-btn" id="submit-comment" data-id="${resp.id}">Comment</button>
       </form>
-    </div>
-  `;
+      </div>
+      `;
+
     return html;
-  }
+  };
 
   // close popup
   #closePopUp = () => {
     const closeBtn = document.getElementById('close-btn');
     closeBtn.addEventListener('click', () => {
-      const contentSection = document.querySelector('.content');
-      contentSection.classList.remove('hide');
+      document.body.classList.remove('hide');
       const popup = document.getElementById('popup');
       document.body.removeChild(popup);
     });
@@ -130,7 +140,7 @@ export default class Popup extends Comment {
       });
       form.reset();
     });
-  }
+  };
 
   // update popup window after adding a comment
   #updatePopup = async (resp) => {

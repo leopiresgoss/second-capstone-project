@@ -1,16 +1,27 @@
 import './style.css';
+import '@fortawesome/fontawesome-free/js/all.js';
+import logo from './billions.svg';
 import fetchSeasons from './modules/series_api.js';
 import renderPage from './modules/create_series.js';
 import Popup from './modules/popup/popup.js';
-import { sendLike, getlikes } from './modules/likes.js';
+import { sendLike, getlikes, updateLikes } from './modules/likes.js';
+import itemsCounter from './modules/counter.js';
+
+// add logo
+const addLogo = () => {
+  const logoDiv = document.querySelector('#logo');
+  const img = document.createElement('img');
+  img.src = logo;
+  img.alt = 'logo';
+  logoDiv.appendChild(img);
+};
 
 // add comments event listener
 const openPopUp = () => {
   const commentsBtn = document.querySelectorAll('.comment-btn');
   commentsBtn.forEach((button) => {
     button.addEventListener('click', () => {
-      const contentSection = document.querySelector('.content');
-      contentSection.classList.add('hide');
+      document.body.classList.add('hide');
       const id = button.getAttribute('data-id');
       const popup = new Popup(id);
       popup.renderPopUp();
@@ -38,25 +49,30 @@ const displayLikes = () => {
 
 // This is to implement items counter on the homepage and update on the header section
 const seasonsCounter = () => {
-  fetchSeasons().then((data) => {
+  fetchSeasons().then(() => {
     const headerlink = document.querySelector('.headlink');
-    headerlink.innerHTML = `${data.length} Seasons`;
+    const columns = document.querySelectorAll('.column');
+    headerlink.innerHTML = `Seasons(${itemsCounter(columns)})`;
   });
-  // const columns = document.querySelectorAll('.column');
-  // const headerlink = document.querySelector('.headlink');
-  // headerlink.innerHTML =  columns.length + " Seasons";
 };
 
 // This is to add a like FOR A PARTICULAR sesason of the series and post it to the API
 const addLike = () => {
   const likebtn = document.querySelectorAll('.like-btn');
   likebtn.forEach((item) => {
-    item.addEventListener('click', (e) => {
-      const likeId = e.target.getAttribute('dataid');
+    item.addEventListener('click', async (e) => {
+      const likeId = e.currentTarget.getAttribute('dataid');
       const data = {
         item_id: likeId,
       };
-      sendLike(data);
+      const likeItem = e.currentTarget.parentNode.querySelector('.like-item');
+      const id = likeItem.getAttribute('dataid');
+      await sendLike(data);
+      updateLikes(id).then((like) => {
+        if (like) {
+          likeItem.innerHTML = like;
+        }
+      });
     });
   });
 };
@@ -64,6 +80,7 @@ const addLike = () => {
 window.addEventListener('load', () => {
   fetchSeasons().then((data) => {
     renderPage(data);
+    addLogo();
     openPopUp();
     addLike();
     displayLikes();
