@@ -11,7 +11,7 @@ const createSeries = (movie) => {
   imageHolder.classList.add('column-image');
   imageHolder.style.backgroundImage = `url('${movie.image.medium}')`;
 
-  title.textContent = movie.id;
+  title.textContent = `Season ${movie.number}`;
   summary.innerHTML = movie.summary;
   button.textContent = 'Comments';
   button.classList.add('comment-btn');
