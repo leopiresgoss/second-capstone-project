@@ -5,6 +5,7 @@ import fetchSeasons from './modules/series_api.js';
 import renderPage from './modules/create_series.js';
 import Popup from './modules/popup/popup.js';
 import { sendLike, getlikes, updateLikes } from './modules/likes.js';
+import itemsCounter from './modules/counter.js';
 
 // add logo
 const addLogo = () => {
@@ -48,9 +49,10 @@ const displayLikes = () => {
 
 // This is to implement items counter on the homepage and update on the header section
 const seasonsCounter = () => {
-  fetchSeasons().then((data) => {
+  fetchSeasons().then(() => {
     const headerlink = document.querySelector('.headlink');
-    headerlink.innerHTML = `${data.length} Seasons`;
+    const columns = document.querySelectorAll('.column');
+    headerlink.innerHTML = `Seasons(${itemsCounter(columns)})`;
   });
 };
 
