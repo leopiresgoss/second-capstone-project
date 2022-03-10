@@ -8,7 +8,7 @@
 
 ![screenshot](./images/home.png)
 
-![screenshot](./images/popup.png)
+![screenshot](./images/popup-small.png)
 
 ## Built With
 - Major Languages: JAVASCRIPT, HTML, CSS
@@ -26,7 +26,9 @@ To get a local copy up and running follow these simple example steps.
 - Open terminal
 - Change the directory you want put the repo
 - Then run
+  
   i. git clone git@github.com:leopiresgoss/second-capstone-project.git
+  
   ii. cd repo-name/
 
 ### Install linters
@@ -60,9 +62,9 @@ linter - `npx stylelint "**/*.{css,scss}"` on the root of your directory of your
  `npm start`   - on the root directory of the project to start the project 
 
 ### API Used
-The series data used in this project is from TV Maze API. For more info use this link:  https://www.tvmaze.com/api
+The series data used in this project is from TV Maze API. For more info use this [link](https://www.tvmaze.com/api)
 
-The comments and likes are stored at the Involvement API. For more information follow this link: https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270
+The comments and likes are stored at the Involvement API. For more information follow this [link](https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270)
 
 
 ## Authors
