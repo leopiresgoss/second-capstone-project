@@ -24,4 +24,12 @@ const getlikes = async () => {
   return likesObj;
 };
 
-export { sendLike, getlikes };
+const updateLikes = async (id) => {
+  const response = await fetch(LIKE_URL);
+  const likesList = await response.json().catch(() => false);
+  if (!likesList) return false;
+  const likeObj = likesList.filter((like) => like.item_id === id);
+  return likeObj[0].likes;
+};
+
+export { sendLike, getlikes, updateLikes };

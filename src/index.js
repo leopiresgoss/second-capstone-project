@@ -4,7 +4,7 @@ import logo from './billions.svg';
 import fetchSeasons from './modules/series_api.js';
 import renderPage from './modules/create_series.js';
 import Popup from './modules/popup/popup.js';
-import { sendLike, getlikes } from './modules/likes.js';
+import { sendLike, getlikes, updateLikes } from './modules/likes.js';
 
 // add logo
 const addLogo = () => {
@@ -49,22 +49,25 @@ const seasonsCounter = () => {
     const headerlink = document.querySelector('.headlink');
     headerlink.innerHTML = `${data.length} Seasons`;
   });
-  // const columns = document.querySelectorAll('.column');
-  // const headerlink = document.querySelector('.headlink');
-  // headerlink.innerHTML =  columns.length + " Seasons";
 };
 
 // This is to add a like FOR A PARTICULAR sesason of the series and post it to the API
 const addLike = () => {
   const likebtn = document.querySelectorAll('.like-btn');
   likebtn.forEach((item) => {
-    item.addEventListener('click', (e) => {
-      const likeId = e.target.getAttribute('dataid');
+    item.addEventListener('click', async (e) => {
+      const likeId = e.currentTarget.getAttribute('dataid');
       const data = {
         item_id: likeId,
       };
-      sendLike(data);
-      // window.location.reload();
+      const likeItem = e.currentTarget.parentNode.querySelector('.like-item');
+      const id = likeItem.getAttribute('dataid');
+      await sendLike(data);
+      updateLikes(id).then((like) => {
+        if (like) {
+          likeItem.innerHTML = like;
+        }
+      });
     });
   });
 };
