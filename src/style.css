@@ -9,6 +9,7 @@ body {
   padding: 48px;
   height: 100%;
   min-height: 100vh;
+  background-color: #d9d9d9;
 }
 
 .hide {
@@ -78,13 +79,15 @@ footer {
   bottom: 0;
 }
 
-.content {
-  background-color: aliceblue;
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
 }
 
 .column {
-  float: left;
-  width: 33.33%;
+  max-width: 350px;
   text-align: center;
   padding: 10px;
   margin-bottom: 50px;
@@ -94,20 +97,7 @@ footer {
   background-repeat: no-repeat;
   background-size: contain;
   height: 400px;
-  margin-left: 5vw;
-}
-
-/* Clear floats after the columns */
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-button {
-  height: 50px;
-  width: 70px;
-  margin: 20px auto;
+  min-width: 169px;
 }
 
 /* popup comments */
