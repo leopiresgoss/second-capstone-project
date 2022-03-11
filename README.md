@@ -2,17 +2,17 @@
 
 # Second Capstone : Billions Seasons Review
 
-> This project is an implemention of a review application in which the user can like and comment on a given seeason of a series.
+> This project is an implementation of a review application in which the user can like and comment on a given season of a series.
 
 ## Screenshot
 
 ![screenshot](./images/home.png)
 
-![screenshot](./images/popup-small.png)
+![screenshot](./images/popup-fixed.png)
 
 ## Built With
 - Major Languages: JAVASCRIPT, HTML, CSS
-- Major Technologies : Git, Github, Webpack
+- Major Technologies : Git, Github, Webpack, JEST
 
 ### Prerequisites
 - npm ( Node Package Manager )
